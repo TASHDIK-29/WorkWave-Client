@@ -11,11 +11,11 @@ const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [mouseOver, setMouseOver] = useState(false);
 
-    const handelMouseOver = () =>{
+    const handelMouseOver = () => {
         setMouseOver(true);
     }
 
-    const handelMouseOut = () =>{
+    const handelMouseOut = () => {
         setMouseOver(false);
     }
 
@@ -24,7 +24,7 @@ const Nav = () => {
     };
 
 
-    const handelLogout = () =>{
+    const handelLogout = () => {
         logOut();
         navigate('/login');
         setMouseOver(false);
@@ -35,7 +35,7 @@ const Nav = () => {
             <div className="container px-6 py-4 mx-auto">
                 <div className="lg:flex lg:items-center lg:justify-between">
                     <div className="flex items-center justify-between">
-                        <Link to = '/' className='text-3xl'>
+                        <Link to='/' className='text-3xl'>
                             {/* <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="Logo" /> */}
                             WorkWave
                         </Link>
@@ -83,15 +83,25 @@ const Nav = () => {
                                 user ?
                                     <button onMouseOver={handelMouseOver} onMouseOut={handelMouseOut} className=" items-center focus:outline-none relative z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md dark:text-white " aria-label="toggle profile dropdown">
                                         <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                            <img  referrerPolicy='no-referrer' src={user?.photoURL} className="object-cover w-full h-full" alt="avatar" />
+                                            <img referrerPolicy='no-referrer' src={user?.photoURL} className="object-cover w-full h-full" alt="avatar" />
                                         </div>
 
                                         {/* Dropdown menu */}
                                         {mouseOver && (
                                             <div className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
-                                                <a href="#" className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">{user?.displayName}</a>
-                                                                                            
-                                                <div onClick={handelLogout} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Sign Out </div>
+                                                <h1 className="cursor-default block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">{user?.displayName}</h1>
+
+                                                {/* <div onClick={handelLogout} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Sign Out </div> */}
+
+                                                <div onClick={handelLogout} className="flex justify-center items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                    <svg className="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z" fill="currentColor"></path>
+                                                    </svg>
+
+                                                    <span className="mx-1">
+                                                        Sign Out
+                                                    </span>
+                                                </div>
                                             </div>
                                         )}
 
