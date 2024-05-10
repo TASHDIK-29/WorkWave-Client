@@ -29,7 +29,7 @@ const AddPost = () => {
 
         console.table(deadline, orgEmail, orgName, description, location, thumbnail, noOfVolunteers, category, postTitle);
 
-        const post ={deadline, orgEmail, orgName, description, location, thumbnail, noOfVolunteers, category, postTitle}
+        const post ={deadline, orgEmail, orgName, orgPhoto : user?.photoURL, description, location, thumbnail, noOfVolunteers, category, postTitle}
 
         // try{
         //     const {data} =await axios.post('http://localhost:5000/post', post)

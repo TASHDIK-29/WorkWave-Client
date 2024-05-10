@@ -5,6 +5,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import AddPost from "../pages/addPost/AddPost";
 import NeedVolunteer from "../pages/needVolunteer/NeedVolunteer";
+import DetailsCard from "../pages/needVolunteer/DetailsCard";
 
 
 
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
             {
                 path: '/needVolunteer',
                 element: <NeedVolunteer />
+            },
+            {
+                path: '/details/:id',
+                element: <DetailsCard />,
+                loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
         ]
     },

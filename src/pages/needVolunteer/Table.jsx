@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Table = ({ post }) => {
 
@@ -23,9 +24,9 @@ const Table = ({ post }) => {
                 {/* <p>$15,792</p> */}
             </td>
             <td className="p-3 text-right">
-                <button className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
+                <Link to = {`/details/${_id}`} className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
                     <span>Details</span>
-                </button>
+                </Link>
             </td>
         </tr>
     );
