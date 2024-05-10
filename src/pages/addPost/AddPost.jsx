@@ -28,6 +28,28 @@ const AddPost = () => {
         const deadline = form.deadline.value;
 
         console.table(deadline, orgEmail, orgName, description, location, thumbnail, noOfVolunteers, category, postTitle);
+
+        const post ={deadline, orgEmail, orgName, description, location, thumbnail, noOfVolunteers, category, postTitle}
+
+        // try{
+        //     const {data} =await axios.post('http://localhost:5000/post', post)
+
+        //     console.log(data);
+        // }catch(err){
+        //     console.log(err);
+        // }
+
+        fetch('http://localhost:5000/post', {
+            method: "POST",
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(post)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        })
     }
 
     return (
