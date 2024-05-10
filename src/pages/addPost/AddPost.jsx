@@ -19,7 +19,7 @@ const AddPost = () => {
 
         const postTitle = form.postTitle.value;
         const category = form.category.value;
-        const noOfVolunteers = form.noOfVolunteers.value;
+        const noOfVolunteersInString = form.noOfVolunteers.value;
         const thumbnail = form.thumbnail.value;
         const location = form.location.value;
         const description = form.description.value;
@@ -27,17 +27,12 @@ const AddPost = () => {
         const orgEmail = form.orgEmail.value;
         const deadline = form.deadline.value;
 
+        const noOfVolunteers = parseInt(noOfVolunteersInString);
+
         console.table(deadline, orgEmail, orgName, description, location, thumbnail, noOfVolunteers, category, postTitle);
 
         const post ={deadline, orgEmail, orgName, orgPhoto : user?.photoURL, description, location, thumbnail, noOfVolunteers, category, postTitle}
 
-        // try{
-        //     const {data} =await axios.post('http://localhost:5000/post', post)
-
-        //     console.log(data);
-        // }catch(err){
-        //     console.log(err);
-        // }
 
         fetch('http://localhost:5000/post', {
             method: "POST",

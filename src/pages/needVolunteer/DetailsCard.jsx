@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import placeHolder from '../../assets/user.png'
 
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -41,7 +41,7 @@ const DetailsCard = () => {
                                 <h1 className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{orgEmail}</h1>
                             </div>
                         </div>
-                        <button className="text-white border border-red-800 p-2">Be a Volunteer</button>
+                        <Link to = {`/beAVolunteer/${_id}`} className="text-white border border-red-800 p-2">Be a Volunteer</Link>
                     </div>
                 </div>
             </div>
