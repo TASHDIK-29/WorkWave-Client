@@ -49,6 +49,9 @@ const AddPost = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data);
+            if(data.insertedId){
+                alert('Successfully Posted')
+            }
         })
     }
 
