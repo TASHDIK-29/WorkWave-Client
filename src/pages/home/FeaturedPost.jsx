@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../needVolunteer/Card";
+import { Link } from "react-router-dom";
 
 const FeaturedPost = () => {
 
@@ -21,6 +22,9 @@ const FeaturedPost = () => {
                 {
                     posts.map(post => <Card key={post._id} post={post}></Card>)
                 }
+            </div>
+            <div className="flex justify-center">
+                <Link className="border border-red-700 p-2 my-3" to = '/needVolunteer'>See All</Link>
             </div>
         </div>
     );

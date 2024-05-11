@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({post}) => {
 
-    console.log(post);
+    // console.log(post);
     const {_id, thumbnail, postTitle, orgName, orgEmail, noOfVolunteers, location, description, deadline, category} = post ;
     return (
         <div className="p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">

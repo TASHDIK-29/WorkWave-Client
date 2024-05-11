@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
 
 const Register = () => {
 
-    const {user, setUser, updateUserProfile, createUser, signInWithGoogle} = useContext(AuthContext);
+    const { user, setUser, updateUserProfile, createUser, signInWithGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
 
-    const handelSignUp = e =>{
+    const handelSignUp = e => {
         e.preventDefault();
 
         const form = e.target;
@@ -21,31 +22,57 @@ const Register = () => {
         // console.log(name, email, photo, password);
 
         createUser(email, password)
-        .then(res =>{
-            console.log(res.user);
+            .then(res => {
+                console.log(res.user);
 
-            updateUserProfile(name, photo)
-            setUser({...user, displayName: name, photoURL: photo})
-        })
-        .catch(err =>{
-            console.log(err);
-        })
+                updateUserProfile(name, photo)
+                setUser({ ...res?.user, displayName: name, photoURL: photo })
+
+                navigate('/');
+
+                const email = res.user.email;
+                const user = { email }
+                console.log(user);
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+
+                        console.log(res.data);
+
+                    }).catch(err => {
+                        console.log(err);
+                    })
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
 
     }
 
 
-    const handelGoogle = () =>{
+    const handelGoogle = () => {
         signInWithGoogle()
-        .then(res =>{
-            console.log(res.user);
-            navigate('/');
+            .then(res => {
+                console.log(res.user);
+                navigate('/');
 
-        })
-        .catch(err =>{
-            console.log(err);
-        })
-        
+                const email = res.user.email;
+                const user = { email }
+                console.log(user);
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+
+                        console.log(res.data);
+
+                    }).catch(err => {
+                        console.log(err);
+                    })
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
     }
 
     return (
@@ -116,7 +143,7 @@ const Register = () => {
                 <div className="flex items-center justify-between mt-4">
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-                    <Link to = '/login' href="#" className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign in</Link>
+                    <Link to='/login' href="#" className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign in</Link>
 
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                 </div>
