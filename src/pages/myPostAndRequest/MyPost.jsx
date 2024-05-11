@@ -20,7 +20,7 @@ const MyPost = () => {
     }, [user])
 
     const getData = () => {
-        fetch(`http://localhost:5000/myPost/${user?.email}`)
+        fetch(`http://localhost:5000/myPost/${user?.email}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
