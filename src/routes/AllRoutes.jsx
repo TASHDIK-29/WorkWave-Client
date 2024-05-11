@@ -7,6 +7,7 @@ import AddPost from "../pages/addPost/AddPost";
 import NeedVolunteer from "../pages/needVolunteer/NeedVolunteer";
 import DetailsCard from "../pages/needVolunteer/DetailsCard";
 import BeAVolunteer from "../pages/beAVolunteer/BeAVolunteer";
+import ManagePostAndRequest from "../pages/myPostAndRequest/ManagePostAndRequest";
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: '/beAVolunteer/:id',
                 element: <BeAVolunteer />,
+            },
+            {
+                path: '/postAndRequest',
+                element: <ManagePostAndRequest />,
                 // loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
         ]
