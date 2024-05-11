@@ -6,6 +6,8 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const MyPost = () => {
 
@@ -43,16 +45,14 @@ const MyPost = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`https://assignment-10-server-rho-nine.vercel.app/spots/${id}`, {
+                fetch(`http://localhost:5000/post/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
                         if (data.deletedCount) {
-                            const remaining = spots.filter(spot => spot._id !== id);
-                            setSpots(remaining);
-
+                            getData();
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your spot has been deleted.",
