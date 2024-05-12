@@ -13,12 +13,12 @@ const BeAVolunteer = () => {
 
     const [post, setPost] = useState([]);
 
-    console.log(post);
+    // console.log(post);
 
     useEffect(() => {
 
         getData();
-    }, [post])
+    }, [user])
 
     const {  thumbnail, postTitle, orgName, orgEmail, noOfVolunteers, location, description, deadline, category } = post;
 
@@ -26,10 +26,10 @@ const BeAVolunteer = () => {
     
 
     const getData = () => {
-        fetch(`http://localhost:5000/post/${id}`)
+        fetch(`http://localhost:5000/post/${id}?view=${true}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setPost(data);
             })
 

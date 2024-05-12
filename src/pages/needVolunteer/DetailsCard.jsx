@@ -11,6 +11,10 @@ const DetailsCard = () => {
 
     const { _id, thumbnail, postTitle, orgName, orgEmail, orgPhoto, noOfVolunteers, location, description, deadline, category, view } = post;
 
+    const handelNoOfVolunteer = () =>{
+        alert('No Vacancy')
+    }
+
     return (
         <div className="w-2/3 mx-auto my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
             <img className="object-cover w-full h-64" src={thumbnail} alt="Article" />
@@ -42,7 +46,8 @@ const DetailsCard = () => {
                                 <h1 className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{orgEmail}</h1>
                             </div>
                         </div>
-                        <Link to = {`/beAVolunteer/${_id}`} className="text-white border border-red-800 p-2">Be a Volunteer</Link>
+                        {noOfVolunteers > 0 ? <Link to = {`/beAVolunteer/${_id}`} className="text-white border border-red-800 p-2">Be a Volunteer</Link>
+                        : <button onClick={handelNoOfVolunteer} className="text-white border border-red-800 p-2">Be a Volunteer</button>}
                     </div>
                 </div>
             </div>
