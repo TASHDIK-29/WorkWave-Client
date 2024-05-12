@@ -8,16 +8,18 @@ import Table from "./Table";
 
 const NeedVolunteer = () => {
 
-    const [posts, setPosts] = useState();
+    const [posts, setPosts] = useState([]);
+    const [search, setSearch] = useState('');
+    console.log(search);
 
     useEffect(() => {
-        fetch('http://localhost:5000/post')
+        fetch(`http://localhost:5000/post?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
                 setPosts(data)
             })
-    }, [])
+    }, [search])
 
     // console.log(posts);
 
@@ -25,13 +27,31 @@ const NeedVolunteer = () => {
     console.log(toggle);
 
 
+    // Search Operation
+
+    const handelSearch = e =>{
+        e.preventDefault();
+
+        const text = e.target.search.value;
+        // console.log(text);
+        setSearch(text);
+    }
+
+
     return (
         <div>
-            <div className="flex justify-between items-center my-6">
-                <div className="flex items-center gap-2">
+            <div className="flex justify-between items-center my-6 p-5">
+                {/* <div className="flex items-center gap-2">
                     <FaSearch />
                     <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                </div> */}
+                <div className="flex items-center w-1/2">
+                    <form onSubmit={handelSearch} className="w-1/2 flex">
+                        <input className="p-2  w-full border" type="text" name="search" placeholder="search by title" />
+                        <input className="border border-red-600 p-2" type="submit" value="Search" />
+                    </form>
                 </div>
+                
                 <div className="flex gap-4 items-center text-2xl">
                     <button onClick={() => setToggle(false)}><RiLayoutGrid2Fill /></button>
                     <button onClick={() => setToggle(true)}><TfiLayoutMenuV /></button>
