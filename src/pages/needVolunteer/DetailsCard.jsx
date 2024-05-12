@@ -2,13 +2,14 @@ import { Link, useLoaderData } from "react-router-dom";
 import placeHolder from '../../assets/user.png'
 
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { IoEyeSharp } from "react-icons/io5";
 
 const DetailsCard = () => {
 
     const post = useLoaderData();
     console.log(post);
 
-    const { _id, thumbnail, postTitle, orgName, orgEmail, orgPhoto, noOfVolunteers, location, description, deadline, category } = post;
+    const { _id, thumbnail, postTitle, orgName, orgEmail, orgPhoto, noOfVolunteers, location, description, deadline, category, view } = post;
 
     return (
         <div className="w-2/3 mx-auto my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -21,10 +22,10 @@ const DetailsCard = () => {
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
                 </div>
 
-                <div className="mt-2 flex justify-between w-1/2">
+                <div className="mt-2 flex justify-between w-2/3">
                     <h1 className="text-white">Deadline : {deadline}</h1>
                     <h1 className="text-white">No. of Volunteer : {noOfVolunteers}</h1>
-                    
+                    <p className="flex items-center gap-2 text-white"><IoEyeSharp /> {view}</p>
                 </div>
 
                 <div className="my-4">

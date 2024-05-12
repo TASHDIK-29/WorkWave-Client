@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { IoEyeSharp } from "react-icons/io5";
 
-const Card = ({post}) => {
+
+const Card = ({ post }) => {
 
     // console.log(post);
-    const {_id, thumbnail, postTitle, orgName, orgEmail, noOfVolunteers, location, description, deadline, category} = post ;
+    const { _id, thumbnail, postTitle, orgName, orgEmail, noOfVolunteers, location, description, deadline, category, view } = post;
     return (
         <div className="p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
             <img src={thumbnail} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
@@ -11,8 +13,11 @@ const Card = ({post}) => {
                 <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">{category}</span>
                 <h2 className="text-xl font-semibold tracking-wide">{postTitle}</h2>
             </div>
-            <p className="dark:text-gray-800">Deadline : {deadline}</p>
-            <Link to = {`/details/${_id}`} className="border border-red-600 p-2 mx-auto">View Details</Link>
+            <div className="flex justify-between items-center px-2">
+                <p className="dark:text-gray-800">Deadline : {deadline}</p>
+                <p className="flex items-center gap-2"><IoEyeSharp /> {view}</p>
+            </div>
+            <Link to={`/details/${_id}`} className="border border-red-600 p-2 mx-auto">View Details</Link>
         </div>
     );
 };
