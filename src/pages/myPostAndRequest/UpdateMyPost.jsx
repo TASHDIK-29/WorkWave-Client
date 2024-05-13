@@ -37,7 +37,10 @@ const UpdateMyPost = () => {
 
     const { _id, thumbnail, postTitle, orgName, orgEmail, noOfVolunteers, location, description, deadline, category } = post;
 
+
+    // const [startDate, setStartDate] = useState(new Date(preprocessDeadline(post?.deadline)) || new Date());
     const [startDate, setStartDate] = useState(new Date());
+    console.log(deadline);
 
     const handelUpdate = e => {
         e.preventDefault();
@@ -111,8 +114,9 @@ const UpdateMyPost = () => {
                         </div>
                         <div className="col-span-full sm:col-span-3 flex flex-col">
                             <label className="text-sm">Deadline</label>
-                            {/* <input type="text" defaultValue={} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" /> */}
-                            <DatePicker defaultValue={deadline} name="deadline" className="p-2 rounded-md w-full" selected={startDate} onChange={(date) => setStartDate(date)} />
+                            {/* <input type="date" name="deadline" defaultValue={deadline} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" /> */}
+                            {/* <input type="date" name="" id="" /> */}
+                            <DatePicker name="deadline" className="p-2 rounded-md w-full text-gray-600 font-bold" selected={startDate} onChange={(date) => setStartDate(date)} />
                         </div>
 
                         <div className="col-span-full">

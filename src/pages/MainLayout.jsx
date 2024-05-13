@@ -5,31 +5,14 @@ import { IoMdArrowRoundUp } from "react-icons/io";
 
 const MainLayout = () => {
 
-    // const [scrollPosition, setScrollPosition] = useState(0);
-
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         setScrollPosition(window.pageYOffset);
-    //     };
-
-    //     // Add event listener to update scroll position
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     // Remove event listener on cleanup
-    //     // return () => {
-    //     //     window.removeEventListener('scroll', handleScroll);
-    //     // };
-    // }, [scrollPosition]);
 
     return (
         <div className="relative">
             <Nav />
-            <Outlet></Outlet>
+            <div className="min-h-screen">
+                <Outlet></Outlet>
+            </div>
             <Footer />
-            {/* {scrollPosition > 730 & <div className="fixed bottom-4 right-4">
-                <button className="border rounded-full p-4 bg-slate-500"><a href="#navBar"><IoMdArrowRoundUp className="text-white" /></a></button>
-            </div>} */}
             <div className="fixed bottom-4 right-4">
                 <button className="border rounded-full p-4 bg-slate-500"><a href="#navBar"><IoMdArrowRoundUp className="text-white" /></a></button>
             </div>
