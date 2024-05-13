@@ -29,7 +29,7 @@ const NeedVolunteer = () => {
 
     // Search Operation
 
-    const handelSearch = e =>{
+    const handelSearch = e => {
         e.preventDefault();
 
         const text = e.target.search.value;
@@ -48,10 +48,17 @@ const NeedVolunteer = () => {
                 <div className="flex items-center w-1/2">
                     <form onSubmit={handelSearch} className="w-1/2 flex">
                         <input className="p-2  w-full border" type="text" name="search" placeholder="search by title" />
-                        <input className="border border-red-600 p-2" type="submit" value="Search" />
+                        {/* <input className="border border-red-600 p-2" type="submit" value="Search" /> */}
+
+                        <button className="relative rounded px-5 py-2.5 overflow-hidden group bg-black  hover:bg-gradient-to-r hover:from-black hover:to-black text-white hover:ring-2 hover:ring-offset-2 hover:ring-black transition-all ease-out duration-300">
+                            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease "></span>
+                            <span className="flex justify-center">
+                                <input className="" type="submit" value="Search" />
+                            </span>
+                        </button>
                     </form>
                 </div>
-                
+
                 <div className="flex gap-4 items-center text-2xl">
                     <button onClick={() => setToggle(false)}><RiLayoutGrid2Fill /></button>
                     <button onClick={() => setToggle(true)}><TfiLayoutMenuV /></button>
