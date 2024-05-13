@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -11,7 +11,8 @@ const Login = () => {
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const page = location?.state || '/';
 
     const handelSignIn = e => {
         e.preventDefault();
@@ -25,7 +26,7 @@ const Login = () => {
         signIn(email, password)
             .then(res => {
                 console.log(res.user);
-                navigate('/');
+                navigate(page);
 
                 toast.success('Login Successful')
 
@@ -54,7 +55,7 @@ const Login = () => {
         signInWithGoogle()
             .then(res => {
                 console.log(res.user);
-                navigate('/');
+                navigate(page);
 
                 toast.success('Login Successful')
 

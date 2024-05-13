@@ -65,6 +65,8 @@ const NeedVolunteer = () => {
                 </div>
             </div>
 
+            <h1 className="text-4xl font-bold text-center my-4">Grab The Opportunity</h1>
+
             {!toggle &&
                 <div className="grid grid-cols-3 gap-6 my-10">
                     {

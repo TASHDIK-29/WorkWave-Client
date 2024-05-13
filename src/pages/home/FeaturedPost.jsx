@@ -17,7 +17,7 @@ const FeaturedPost = () => {
 
     return (
         <div>
-            <h1 className="text-3xl text-center my-5">Featured post</h1>
+            <h1 className="text-4xl font-bold text-center my-5">Featured Posts</h1>
             <div className="grid grid-cols-3 gap-6 my-6">
                 {
                     posts.map(post => <Card key={post._id} post={post}></Card>)

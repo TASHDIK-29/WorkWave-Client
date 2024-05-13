@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import placeholder from '../../assets/user.png'
 
 import logo from '../../assets/W.png'
 
@@ -87,7 +88,7 @@ const Nav = () => {
                                 {isClicked && (
                                     <div onClick={closeDropdown} className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
                                         <a href="#" className="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                                            <img className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src={user?.photoURL} alt="jane avatar" />
+                                            <img className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src={user ? user?.photoURL : placeholder} alt="jane avatar" />
                                             <div className="mx-1">
                                                 <h1 className="text-sm font-semibold text-gray-700 dark:text-gray-200">{user?.displayName}</h1>
                                                 <p className="text-sm text-gray-500 dark:text-gray-400">{user?.email}</p>
