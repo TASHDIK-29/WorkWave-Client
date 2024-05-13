@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Nav = () => {
@@ -46,7 +46,7 @@ const Nav = () => {
         <nav className="relative bg-white shadow ">
             <div className="container px-6 py-4 mx-auto">
                 <div className="lg:flex lg:items-center lg:justify-between">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between border">
                         <Link to='/' className='text-3xl'>
                             {/* <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="Logo" /> */}
                             WorkWave
@@ -66,15 +66,15 @@ const Nav = () => {
                     </div>
 
                     {/* Mobile Menu open: "block", Menu closed: "hidden" */}
-                    <div className={`${isOpen ? "block" : "hidden"} absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}>
-                        <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                            <Link to='/' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</Link>
-                            <Link to = '/needVolunteer' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Need Volunteer</Link>
+                    <div className={`${isOpen ? "block" : "hidden"} absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-1/2 lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between `}>
+                        <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:justify-around lg:mx-8 gap-2  w-2/3">
+                            <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/' >Home</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/needVolunteer'>Need Volunteer</NavLink>
 
                             <div className="relative inline-block">
                                 {/* Dropdown toggle button */}
-                                <button onClick={toggleDropdown} className="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
-                                    <span className="mx-1">My Profile</span>
+                                <button onClick={toggleDropdown} className="relative z-10 flex items-center p-2 text-sm border-2 rounded-lg border-black">
+                                    <span className="mx-1 text-slate-600 font-bold text-sm">My Profile</span>
                                     <svg className="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z" fill="currentColor"></path>
                                     </svg>
@@ -93,19 +93,19 @@ const Nav = () => {
 
                                         <hr className="border-gray-200 dark:border-gray-700" />
 
-                                        <Link to = '/addPost' className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Add Volunteer Post</Link>
-                                        <Link to = '/postAndRequest' className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Manage My Post</Link>
+                                        <Link to='/addPost' className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Add Volunteer Post</Link>
+                                        <Link to='/postAndRequest' className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Manage My Post</Link>
                                         {/* <a href="#" className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">My Volunteer Requested Post</a> */}
 
-                                        
+
                                     </div>
                                 )}
                             </div>
-                            
+
                         </div>
 
                         <div className="flex items-center mt-4 lg:mt-0">
-                           
+
 
                             {
                                 user ?
@@ -119,7 +119,7 @@ const Nav = () => {
                                             <div className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
                                                 <h1 className="cursor-default block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">{user?.displayName}</h1>
 
-                                               
+
 
                                                 <div onClick={handelLogout} className="flex justify-center items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                                                     <svg className="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,11 +134,15 @@ const Nav = () => {
                                         )}
 
                                     </button>
-                                    : <Link to='/login' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</Link>
+                                    : <Link to='/login' className="flex items-center justify-center px-4 py-2 text-base font-medium leading-6  whitespace-no-wrap bg-black border-2 border-transparent rounded-full shadow-sm text-white  focus:outline-none">
+                                        Login
+                                    </Link>
+
+
                             }
 
 
-                           
+
                         </div>
                     </div>
                 </div>

@@ -92,8 +92,8 @@ const Review = () => {
         <div className="my-8">
             <h1 className="text-3xl font-bold text-center">We Care Your Thoughts</h1>
             <div className="flex">
-                <div className="w-1/2 border">
-                    <div>
+                <div className="w-1/2 border ">
+                    <div className="p-2 w-2/3 mx-auto ">
                         <Swiper
                             spaceBetween={30}
                             centeredSlides={true}
@@ -103,7 +103,7 @@ const Review = () => {
                             }}
                             // loop={true}
 
-                            
+
                             // pagination={{
                             //     clickable: true,
                             // }}
@@ -132,16 +132,25 @@ const Review = () => {
                         </Swiper>
                     </div>
                 </div>
-                <div className="w-1/2 border">
-                    <form onSubmit={handelSubmit} className="w-2/3">
-                        <label htmlFor="Description" className="block text-sm text-gray-500 dark:text-gray-300">Put tour Thoughts</label>
+                <div className="w-1/2 border px-10 py-4 flex flex-col items-end">
+                    <form onSubmit={handelSubmit} className="w-2/3 relative">
+                        <label htmlFor="Description" className="block text-lg font-bold">Put tour Thoughts</label>
 
                         <textarea
                             placeholder="lorem..."
                             name="review"
-                            className="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 d dark:text-gray-300 dark:focus:border-blue-300"
+                            className="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600  dark:focus:border-blue-300 mb-4"
                         ></textarea>
-                        <input className="border p-2 border-red-600" type="submit" value="Submit" />
+                        {/* <input className="border p-2 border-red-600 absolute right-0" type="submit" value="Submit" /> */}
+                        <div className="absolute right-0">
+                            <button className="relative px-6 py-3 font-bold text-black group">
+                                <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-blue-400 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                                <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
+                                <span className="relative">
+                                    <input className="" type="submit" value="Submit" />
+                                </span>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
