@@ -25,7 +25,7 @@ const UpdateMyPost = () => {
 
 
     const getData = () => {
-        fetch(`http://localhost:5000/post/${id}`)
+        fetch(`https://assignment-11-server-nu.vercel.app/post/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -61,7 +61,7 @@ const UpdateMyPost = () => {
         const updatePost = { deadline, orgEmail, orgName, orgPhoto: user?.photoURL, description, location, thumbnail, noOfVolunteers, category, postTitle }
 
 
-        fetch(`http://localhost:5000/post/${_id}`, {
+        fetch(`https://assignment-11-server-nu.vercel.app/post/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

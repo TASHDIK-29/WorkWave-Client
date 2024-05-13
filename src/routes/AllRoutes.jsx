@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <DetailsCard />,
-                loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
+                loader : ({params}) => fetch(`https://assignment-11-server-nu.vercel.app/post/${params.id}`)
             },
             {
                 path: '/update/:id',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: '/postAndRequest',
                 element: <ManagePostAndRequest />,
-                // loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
+                // loader : ({params}) => fetch(`https://assignment-11-server-nu.vercel.app/post/${params.id}`)
             },
         ]
     },

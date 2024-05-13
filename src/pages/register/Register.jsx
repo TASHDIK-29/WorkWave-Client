@@ -2,6 +2,10 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
+import toast from "react-hot-toast";
+
+import reg from '../../assets/reg.jpg'
+import logo from '../../assets/W.png'
 
 const Register = () => {
 
@@ -21,6 +25,21 @@ const Register = () => {
 
         // console.log(name, email, photo, password);
 
+        if (!/^(?=.*[A-Z]).*$/.test(password)) {
+            toast.error('Password must contain at least one Uppercase Character');
+            return;
+        }
+
+        if (!/^(?=.*[a-z]).*$/.test(password)) {
+            toast.error('Password must contain at least one Lowercase Character');
+            return;
+        }
+
+        if (!/^.{6,}$/.test(password)) {
+            toast.error('Password must contain at least six Character');
+            return;
+        }
+
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
@@ -33,7 +52,7 @@ const Register = () => {
                 const email = res.user.email;
                 const user = { email }
                 console.log(user);
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);
@@ -44,6 +63,9 @@ const Register = () => {
             })
             .catch(err => {
                 console.log(err);
+                if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    toast.error('This email already been used');
+                }
             })
 
 
@@ -59,7 +81,7 @@ const Register = () => {
                 const email = res.user.email;
                 const user = { email }
                 console.log(user);
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);
@@ -76,17 +98,16 @@ const Register = () => {
     }
 
     return (
-        <div className="flex flex-row-reverse w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg 
-         lg:max-w-4xl">
-            <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')" }}></div>
+        <div className="flex flex-row-reverse justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-12">
+            <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${reg})` }}></div>
 
-            <form onSubmit={handelSignUp} className="w-full px-6 py-8 md:px-8 lg:w-1/2">
-                <div className="flex justify-center mx-auto">
-                    <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="Logo" />
+            <form onSubmit={handelSignUp} className="w-full px-6 py-8 md:px-8 lg:w-2/5 border-2 border-black">
+                <div className="flex justify-center mx-auto h-14">
+                    <img className="w-20 h-14" src={logo} alt="Logo" />
                 </div>
 
-                <p className="mt-3 text-xl text-center text-gray-600 ">
-                    Welcome back!
+                <p className="mt-3 text-xl font-semibold text-center text-gray-600 ">
+                    Welcome To WorkWave
                 </p>
 
 
@@ -106,24 +127,24 @@ const Register = () => {
                 <div className="flex items-center justify-between mt-4">
                     <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
-                    <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login with email</a>
+                    <a href="#" className="text-xs text-center text-gray-500 font-bold uppercase hover:underline">or Sign Up with email</a>
 
                     <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
                 </div>
 
                 <div className="mt-4">
                     <label className="block mb-2 text-sm font-medium text-gray-600 ">Your Name</label>
-                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" name="name" />
+                    <input className="block w-full px-4 py-2 text-gray-700 font-medium bg-white border rounded-lg  dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" name="name" />
                 </div>
 
                 <div className="mt-4">
                     <label className="block mb-2 text-sm font-medium text-gray-600 ">Email Address</label>
-                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="email" />
+                    <input className="block w-full px-4 py-2 text-gray-700 font-medium bg-white border rounded-lg  dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="email" />
                 </div>
 
                 <div className="mt-4">
                     <label className="block mb-2 text-sm font-medium text-gray-600 ">Photo URL</label>
-                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" name="photo" />
+                    <input className="block w-full px-4 py-2 text-gray-700 font-medium bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" name="photo" />
                 </div>
 
                 <div className="mt-4">
@@ -131,7 +152,7 @@ const Register = () => {
                         <label className="block mb-2 text-sm font-medium text-gray-600 ">Password</label>
                     </div>
 
-                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" />
+                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" />
                 </div>
 
                 <div className="mt-6">
@@ -143,7 +164,7 @@ const Register = () => {
                 <div className="flex items-center justify-between mt-4">
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-                    <Link to='/login' href="#" className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign in</Link>
+                    <Link to='/login' href="#" className="text-xs text-gray-500 font-bold uppercase hover:underline">or sign in</Link>
 
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                 </div>

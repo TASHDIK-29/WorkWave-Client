@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
 
     // Clear cookie at logout
-    axios('http://localhost:5000/logout', {withCredentials: true})
+    axios('https://assignment-11-server-nu.vercel.app/logout', {withCredentials: true})
     .then(res =>{
       console.log(res.data);
     })

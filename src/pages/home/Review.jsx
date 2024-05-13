@@ -29,7 +29,7 @@ const Review = () => {
 
 
     const getReviews = () => {
-        fetch('http://localhost:5000/review')
+        fetch('https://assignment-11-server-nu.vercel.app/review')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -53,7 +53,7 @@ const Review = () => {
         // setReview(data);
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://assignment-11-server-nu.vercel.app/review', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -74,7 +74,7 @@ const Review = () => {
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/review', {
+    //     fetch('https://assignment-11-server-nu.vercel.app/review', {
     //         method: "POST",
     //         headers: {
     //             "content-type": "application/json"

@@ -6,7 +6,7 @@ const MostViewed = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/mostViewed')
+        fetch('https://assignment-11-server-nu.vercel.app/mostViewed')
             .then(res => res.json())
             .then(data => {
                 console.log(data);

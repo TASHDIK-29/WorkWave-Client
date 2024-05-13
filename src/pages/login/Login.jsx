@@ -2,6 +2,10 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+
+import login from '../../assets/login.jpg'
+import logo from '../../assets/W.png'
 
 const Login = () => {
 
@@ -23,10 +27,12 @@ const Login = () => {
                 console.log(res.user);
                 navigate('/');
 
+                toast.success('Login Successful')
+
                 const email = res.user.email;
                 const user = { email }
                 console.log(user);
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);
@@ -38,6 +44,7 @@ const Login = () => {
             })
             .catch(err => {
                 console.log(err);
+                toast.error('auth/invalid-credential');
             })
 
 
@@ -49,10 +56,12 @@ const Login = () => {
                 console.log(res.user);
                 navigate('/');
 
+                toast.success('Login Successful')
+
                 const email = res.user.email;
                 const user = { email }
                 console.log(user);
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);
@@ -70,16 +79,15 @@ const Login = () => {
 
 
     return (
-        <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg 
-         lg:max-w-4xl">
-            <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')" }}></div>
+        <div className="flex justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-10">
+            <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${login})` }}></div>
 
-            <form onSubmit={handelSignIn} className="w-full px-6 py-8 md:px-8 lg:w-1/2">
-                <div className="flex justify-center mx-auto">
-                    <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="Logo" />
+            <form onSubmit={handelSignIn} className="w-full px-6 py-8 md:px-8 lg:w-1/3 border-2 border-black">
+                <div className="flex justify-center mx-auto ">
+                    <img className="w-auto h-14" src={logo} alt="Logo" />
                 </div>
 
-                <p className="mt-3 text-xl text-center text-gray-600 ">
+                <p className="mt-3 text-xl text-center font-semibold text-gray-600 ">
                     Welcome back!
                 </p>
 
@@ -100,23 +108,23 @@ const Login = () => {
                 <div className="flex items-center justify-between mt-4">
                     <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
-                    <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login with email</a>
+                    <a href="#" className="text-xs font-bold text-center text-gray-500 uppercase  hover:underline">or login with email</a>
 
                     <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
                 </div>
 
                 <div className="mt-4">
                     <label className="block mb-2 text-sm font-medium text-gray-600 ">Email Address</label>
-                    <input className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name='email' />
+                    <input className="block w-full px-4 py-2 text-gray-700 font-medium bg-white border rounded-lg   focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name='email' />
                 </div>
 
                 <div className="mt-4">
                     <div className="flex justify-between">
                         <label className="block mb-2 text-sm font-medium text-gray-600 ">Password</label>
-                        <a className="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</a>
+                        <a className="text-xs font-semibold text-gray-500 hover:underline">Forget Password?</a>
                     </div>
 
-                    <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name='password' />
+                    <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name='password' />
                 </div>
 
                 <div className="mt-6">
@@ -128,7 +136,7 @@ const Login = () => {
                 <div className="flex items-center justify-between mt-4">
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-                    <Link to='/register' className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign up</Link>
+                    <Link to='/register' className="text-xs text-gray-500 font-bold uppercase hover:underline">or sign up</Link>
 
                     <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                 </div>

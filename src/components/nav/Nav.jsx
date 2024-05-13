@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
+import logo from '../../assets/W.png'
+
 const Nav = () => {
 
     const { user, logOut } = useContext(AuthContext);
@@ -47,8 +49,9 @@ const Nav = () => {
             <div className="container px-6 py-4 mx-auto">
                 <div className="lg:flex lg:items-center lg:justify-between">
                     <div className="flex items-center justify-between ">
-                        <Link to='/' className='text-3xl font-semibold'>
-                            {/* <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="Logo" /> */}
+                        <Link to='/' className='text-3xl font-semibold flex items-center'>
+                            <img className="w-auto h-12" src={logo} alt="Logo" />
+                            
                             Work<span className='text-4xl font-bold'>Wave</span>
                         </Link>
 
