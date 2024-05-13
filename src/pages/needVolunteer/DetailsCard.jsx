@@ -11,7 +11,7 @@ const DetailsCard = () => {
 
     const { _id, thumbnail, postTitle, orgName, orgEmail, orgPhoto, noOfVolunteers, location, description, deadline, category, view } = post;
 
-    const handelNoOfVolunteer = () =>{
+    const handelNoOfVolunteer = () => {
         alert('No Vacancy')
     }
 
@@ -46,8 +46,24 @@ const DetailsCard = () => {
                                 <h1 className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{orgEmail}</h1>
                             </div>
                         </div>
-                        {noOfVolunteers > 0 ? <Link to = {`/beAVolunteer/${_id}`} className="text-white border border-red-800 p-2">Be a Volunteer</Link>
-                        : <button onClick={handelNoOfVolunteer} className="text-white border border-red-800 p-2">Be a Volunteer</button>}
+                        {noOfVolunteers > 0 ? <Link to={`/beAVolunteer/${_id}`} className="text-white p-2">
+                            
+
+                            <button className="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                                <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </span>
+                                <span className="relative">Be a Volunteer</span>
+                            </button>
+                        </Link>
+                            : <button onClick={handelNoOfVolunteer} className="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                            <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                            <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                            <span className="relative">Be a Volunteer</span>
+                        </button>}
                     </div>
                 </div>
             </div>

@@ -100,14 +100,14 @@ const MyPost = () => {
                                 <td>
                                     <button>
                                         <Link to={`/update/${post._id}`}
-                                            data-tooltip-id="update" data-tooltip-content="Update"><FaUserEdit className="text-2xl text-rose-600 font-bold" /></Link>
+                                            data-tooltip-id="update" data-tooltip-content="Update"><FaUserEdit className="text-2xl text-black font-bold" /></Link>
                                         <Tooltip id="update"
                                             place="top"
                                         />
                                     </button>
                                 </td>
                                 <td>
-                                    <button data-tooltip-id="delete" data-tooltip-content="Delete" onClick={() => handelDelete(post._id)}><MdOutlineDeleteForever className="text-3xl text-rose-600 font-bold" /></button>
+                                    <button data-tooltip-id="delete" data-tooltip-content="Delete" onClick={() => handelDelete(post._id)}><MdOutlineDeleteForever className="text-3xl text-black font-bold" /></button>
                                     <Tooltip id="delete" />
                                 </td>
                             </tr>)

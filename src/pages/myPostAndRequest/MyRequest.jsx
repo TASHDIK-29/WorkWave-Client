@@ -105,7 +105,7 @@ const MyRequest = () => {
                                 </button>
                             </td> */}
                             <td>
-                                <button onClick={() => handelCancel(post._id)}>Cancel</button>
+                                <button className="border px-3 py-1 rounded-lg bg-black text-white text-base font-medium" onClick={() => handelCancel(post._id)}>Cancel</button>
                             </td>
                         </tr>)
                     }

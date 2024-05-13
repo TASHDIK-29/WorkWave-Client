@@ -8,6 +8,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+import './review.css'
+
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -89,11 +91,11 @@ const Review = () => {
     // }, [review])
 
     return (
-        <div className="my-8">
-            <h1 className="text-3xl font-bold text-center">We Care Your Thoughts</h1>
-            <div className="flex">
-                <div className="w-1/2 border ">
-                    <div className="p-2 w-2/3 mx-auto ">
+        <div className="my-20">
+            <h1 className="text-4xl font-bold text-center mb-12">We Care Your Thoughts</h1>
+            <div className="flex items-center review-container">
+                <div className="w-1/2 ">
+                    <div className="p-4 w-4/6 mx-auto ">
                         <Swiper
                             spaceBetween={30}
                             centeredSlides={true}
@@ -132,14 +134,14 @@ const Review = () => {
                         </Swiper>
                     </div>
                 </div>
-                <div className="w-1/2 border px-10 py-4 flex flex-col items-end">
+                <div className="w-1/2 px-10 py-4 flex flex-col items-end">
                     <form onSubmit={handelSubmit} className="w-2/3 relative">
-                        <label htmlFor="Description" className="block text-lg font-bold">Put tour Thoughts</label>
+                        <label htmlFor="Description" className="block text-lg font-bold text-slate-400">Put tour Thoughts</label>
 
                         <textarea
                             placeholder="lorem..."
                             name="review"
-                            className="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-32 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600  dark:focus:border-blue-300 mb-4"
+                            className="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-52 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600  dark:focus:border-blue-300 mb-4"
                         ></textarea>
                         {/* <input className="border p-2 border-red-600 absolute right-0" type="submit" value="Submit" /> */}
                         <div className="absolute right-0">
