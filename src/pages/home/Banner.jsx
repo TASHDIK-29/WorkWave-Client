@@ -5,9 +5,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import bg1 from "../../assets/carousel1.jpg"
-import bg2 from "../../assets/carousel2.jpg"
-import bg3 from "../../assets/carousel3.jpg"
+import bg1 from "../../assets/health1.jpg"
+import bg2 from "../../assets/edu2.jpg"
+import bg3 from "../../assets/animal2.jpg"
 
 
 // import required modules
@@ -33,13 +33,26 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <Slide image={bg1} text='Slider text 1'></Slide>
+                    <Slide image={bg1}
+                        text='Welcome to'
+                        text2='Serve Just Like A'
+                        >
+
+                    </Slide>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Slide image={bg2} text='Slider text 2'></Slide>
+                    <Slide image={bg2}
+                        text='Welcome to'
+                        text2='Serve Just Like A'>
+
+                    </Slide>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Slide image={bg3} text='Slider text 3'></Slide>
+                    <Slide image={bg3}
+                        text='Welcome to'
+                        text2='Serve Just Like A'>
+
+                    </Slide>
                 </SwiperSlide>
 
 
