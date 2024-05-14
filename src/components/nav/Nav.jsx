@@ -120,7 +120,7 @@ const Nav = () => {
 
                                         {/* Dropdown menu */}
                                         {mouseOver && (
-                                            <div className="absolute left-5 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
+                                            <div className="absolute -left-4 lg:-left-28 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
                                                 <h1 className="cursor-default block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">{user?.displayName}</h1>
 
 
