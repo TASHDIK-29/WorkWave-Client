@@ -70,7 +70,7 @@ const Nav = () => {
                     </div>
 
                     {/* Mobile Menu open: "block", Menu closed: "hidden" */}
-                    <div className={`${isOpen ? "block" : "hidden"} absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-1/2 lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between `}>
+                    <div className={`${isOpen ? "block" : "hidden"} absolute ml-2 inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-1/2 lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between `}>
                         <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:justify-around lg:mx-8 gap-2  w-2/3">
                             <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/' >Home</NavLink>
                             <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/needVolunteer'>Need Volunteer</NavLink>
@@ -86,7 +86,7 @@ const Nav = () => {
 
                                 {/* Dropdown menu */}
                                 {isClicked && (
-                                    <div onClick={closeDropdown} className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
+                                    <div onClick={closeDropdown} className="absolute left-5 z-20 w-56 py-2 mt-2 overflow-hidden origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
                                         <a href="#" className="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                                             <img className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src={user ? user?.photoURL : placeholder} alt="jane avatar" />
                                             <div className="mx-1">
@@ -120,7 +120,7 @@ const Nav = () => {
 
                                         {/* Dropdown menu */}
                                         {mouseOver && (
-                                            <div className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
+                                            <div className="absolute left-5 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800">
                                                 <h1 className="cursor-default block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">{user?.displayName}</h1>
 
 
