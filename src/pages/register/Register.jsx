@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
@@ -6,8 +6,13 @@ import toast from "react-hot-toast";
 
 import reg from '../../assets/reg.jpg'
 import logo from '../../assets/W.png'
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
+
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
 
     const { user, setUser, updateUserProfile, createUser, signInWithGoogle } = useContext(AuthContext);
 
@@ -99,6 +104,9 @@ const Register = () => {
 
     return (
         <div className="flex flex-row-reverse justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-2 md:p-12">
+            <Helmet>
+                <title>Sign Up | WorkWave</title>
+            </Helmet>
             <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${reg})` }}></div>
 
             <form onSubmit={handelSignUp} className="w-full px-6 py-8 md:px-8 lg:w-2/5 border-2 border-black">

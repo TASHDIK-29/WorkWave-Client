@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
@@ -6,8 +6,13 @@ import toast from 'react-hot-toast';
 
 import login from '../../assets/login.jpg'
 import logo from '../../assets/W.png'
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
+
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -81,6 +86,9 @@ const Login = () => {
 
     return (
         <div className="flex justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-2 md:p-10">
+            <Helmet>
+                <title>Login | WorkWave</title>
+            </Helmet>
             <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${login})` }}></div>
 
             <form onSubmit={handelSignIn} className="w-full px-6 py-8 md:px-8 lg:w-1/3 border-2 border-black">

@@ -3,8 +3,14 @@ import placeHolder from '../../assets/user.png'
 
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const DetailsCard = () => {
+
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
 
     const post = useLoaderData();
     console.log(post);
@@ -17,6 +23,9 @@ const DetailsCard = () => {
 
     return (
         <div className="md:w-2/3 mx-auto my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <Helmet>
+                <title>{postTitle} | WorkWave</title>
+            </Helmet>
             <img className="object-cover w-full h-64" src={thumbnail} alt="Article" />
 
             <div className="p-6">

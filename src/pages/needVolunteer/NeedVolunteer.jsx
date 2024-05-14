@@ -4,6 +4,7 @@ import { RiLayoutGrid2Fill } from "react-icons/ri";
 import { TfiLayoutMenuV } from "react-icons/tfi";
 import Card from "./Card";
 import Table from "./Table";
+import { Helmet } from "react-helmet-async";
 
 
 const NeedVolunteer = () => {
@@ -40,6 +41,9 @@ const NeedVolunteer = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Need Volunteer | WorkWave</title>
+            </Helmet>
             <div className="flex flex-col lg:flex-row justify-between items-center my-6 p-5 space-y-2">
                 {/* <div className="flex items-center gap-2">
                     <FaSearch />

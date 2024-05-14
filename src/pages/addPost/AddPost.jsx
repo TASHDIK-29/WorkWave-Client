@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -52,6 +53,9 @@ const AddPost = () => {
 
     return (
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
+            <Helmet>
+                <title>Add Post | WorkWave</title>
+            </Helmet>
             <form onSubmit={handelAddPost} className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
                     {/* <div className="space-y-2 col-span-full lg:col-span-1">
