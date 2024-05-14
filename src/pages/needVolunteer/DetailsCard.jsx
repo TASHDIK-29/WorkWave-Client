@@ -16,7 +16,7 @@ const DetailsCard = () => {
     }
 
     return (
-        <div className="w-2/3 mx-auto my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div className="md:w-2/3 mx-auto my-20 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
             <img className="object-cover w-full h-64" src={thumbnail} alt="Article" />
 
             <div className="p-6">
@@ -26,7 +26,7 @@ const DetailsCard = () => {
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
                 </div>
 
-                <div className="mt-2 flex justify-between w-2/3">
+                <div className="mt-2 md:flex justify-between md:w-2/3 space-y-2">
                     <h1 className="text-white">Deadline : {deadline}</h1>
                     <h1 className="text-white">No. of Volunteer : {noOfVolunteers}</h1>
                     <p className="flex items-center gap-2 text-white"><IoEyeSharp /> {view}</p>
@@ -37,7 +37,7 @@ const DetailsCard = () => {
                 </div>
 
                 <div className="mt-4">
-                    <div className="flex items-center justify-between">
+                    <div className="md:flex items-center justify-between">
                         <div className="flex items-center">
                             <img className="object-cover h-10 rounded-full" src={orgPhoto ? orgPhoto : placeHolder} alt="Avatar" />
                             <div>
@@ -49,9 +49,9 @@ const DetailsCard = () => {
                         {noOfVolunteers > 0 ? <Link to={`/beAVolunteer/${_id}`} className="text-white p-2">
                             
 
-                            <button className="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                            <button className="relative inline-flex items-center mt-2 px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
                                 <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-                                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                <span className="absolute right-0 flex items-center mt-2 justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                 </span>
                                 <span className="relative">Be a Volunteer</span>

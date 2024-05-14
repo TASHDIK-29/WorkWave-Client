@@ -94,7 +94,7 @@ const Review = () => {
         <div className="my-20">
             <h1 className="text-4xl font-bold text-center mb-12">We Care Your Thoughts</h1>
             <div className="flex flex-col md:flex-row items-center review-container py-20">
-                <div className="w-full md:w-1/2 ">
+                <div className="w-full md:w-2/3 lg:w-1/2 ">
                     <div className="p-4 w-full md:w-4/6 mx-auto ">
                         <Swiper
                             spaceBetween={30}
@@ -134,8 +134,8 @@ const Review = () => {
                         </Swiper>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 px-4 md:px-10 py-4 flex flex-col items-end">
-                    <form onSubmit={handelSubmit} className="w-full md:w-2/3 relative">
+                <div className="w-full  lg:w-1/2 px-4 lg:px-10 py-4 flex flex-col items-end">
+                    <form onSubmit={handelSubmit} className="w-full lg:w-2/3 relative">
                         <label htmlFor="Description" className="block text-lg font-bold text-slate-400">Put tour Thoughts</label>
 
                         <textarea

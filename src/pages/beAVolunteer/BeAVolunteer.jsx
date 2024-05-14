@@ -85,11 +85,11 @@ const BeAVolunteer = () => {
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
             <form onSubmit={handelRequest} className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
-                    <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Personal Inormation</p>
+                    {/* <div className="space-y-2 col-span-full lg:col-span-1">
+                        <p className="font-medium">Personal Information</p>
                         <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
-                    </div>
-                    <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                    </div> */}
+                    <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-4">
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Post Title</label>
                             <input type="text" name="postTitle" readOnly defaultValue={postTitle} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
@@ -133,8 +133,8 @@ const BeAVolunteer = () => {
                 </fieldset>
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
                     <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Profile</p>
-                        <p className="text-xs">Adipisci fuga autem eum!</p>
+                        <p className="text-2xl font-medium">Users Profile</p>
+                        <p className="text-base font-normal">Check your information. You may suggest us if you have any unique and promising ideas.</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">

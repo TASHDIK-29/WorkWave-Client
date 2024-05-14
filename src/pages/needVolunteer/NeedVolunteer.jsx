@@ -40,13 +40,13 @@ const NeedVolunteer = () => {
 
     return (
         <div>
-            <div className="flex justify-between items-center my-6 p-5">
+            <div className="flex flex-col lg:flex-row justify-between items-center my-6 p-5 space-y-2">
                 {/* <div className="flex items-center gap-2">
                     <FaSearch />
                     <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                 </div> */}
-                <div className="flex items-center w-1/2">
-                    <form onSubmit={handelSearch} className="w-1/2 flex">
+                <div className="flex items-center md:w-1/2">
+                    <form onSubmit={handelSearch} className="w-full flex">
                         <input className="p-2  w-full border" type="text" name="search" placeholder="search by title" />
                         {/* <input className="border border-red-600 p-2" type="submit" value="Search" /> */}
 
@@ -59,7 +59,7 @@ const NeedVolunteer = () => {
                     </form>
                 </div>
 
-                <div className="flex gap-4 items-center text-2xl">
+                <div className="flex gap-4 lg:items-center text-2xl w-full justify-end">
                     <button onClick={() => setToggle(false)}><RiLayoutGrid2Fill /></button>
                     <button onClick={() => setToggle(true)}><TfiLayoutMenuV /></button>
                 </div>
@@ -68,7 +68,7 @@ const NeedVolunteer = () => {
             <h1 className="text-4xl font-bold text-center my-4">Grab The Opportunity</h1>
 
             {!toggle &&
-                <div className="grid grid-cols-3 gap-6 my-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
                     {
                         posts?.map(post => <Card key={post._id} post={post}></Card>)
                     }
