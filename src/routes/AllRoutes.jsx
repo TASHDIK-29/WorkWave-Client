@@ -10,6 +10,7 @@ import BeAVolunteer from "../pages/beAVolunteer/BeAVolunteer";
 import ManagePostAndRequest from "../pages/myPostAndRequest/ManagePostAndRequest";
 import UpdateMyPost from "../pages/myPostAndRequest/UpdateMyPost";
 import PrivateRoute from "../private/PrivateRoute";
+import ErrorPage from "../pages/err/ErrorPage";
 
 
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children:[
             {
                 path: '/',
