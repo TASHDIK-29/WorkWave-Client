@@ -139,11 +139,11 @@ const BeAVolunteer = () => {
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Volunteer Name</label>
-                            <input type="text" name="volunteerName" defaultValue={user?.displayName} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
+                            <input type="text" name="volunteerName" readOnly defaultValue={user?.displayName} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Volunteer Email</label>
-                            <input type="email" name="volunteerEmail" defaultValue={user?.email} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
+                            <input type="email" name="volunteerEmail" readOnly defaultValue={user?.email} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
                         </div>
 
                         <div className="col-span-full sm:col-span-3">

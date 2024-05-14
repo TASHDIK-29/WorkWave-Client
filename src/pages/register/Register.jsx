@@ -98,7 +98,7 @@ const Register = () => {
     }
 
     return (
-        <div className="flex flex-row-reverse justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-12">
+        <div className="flex flex-row-reverse justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-2 md:p-12">
             <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${reg})` }}></div>
 
             <form onSubmit={handelSignUp} className="w-full px-6 py-8 md:px-8 lg:w-2/5 border-2 border-black">

@@ -54,11 +54,11 @@ const AddPost = () => {
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
             <form onSubmit={handelAddPost} className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
-                    <div className="space-y-2 col-span-full lg:col-span-1">
+                    {/* <div className="space-y-2 col-span-full lg:col-span-1">
                         <p className="font-medium">Personal Inormation</p>
                         <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
-                    </div>
-                    <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                    </div> */}
+                    <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-4">
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Post Title</label>
                             <input type="text" name="postTitle" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
@@ -93,17 +93,17 @@ const AddPost = () => {
                 </fieldset>
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
                     <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Profile</p>
-                        <p className="text-xs">Adipisci fuga autem eum!</p>
+                        <p className="text-2xl font-medium">Users Profile</p>
+                        <p className="text-base">You can not edit this section.</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Username</label>
-                            <input type="text" name="orgName" defaultValue={user?.displayName} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
+                            <input type="text" name="orgName" readOnly defaultValue={user?.displayName} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Email</label>
-                            <input type="email" name="orgEmail" defaultValue={user?.email} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
+                            <input type="email" name="orgEmail" readOnly defaultValue={user?.email} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" />
                         </div>
 
                         <div className="col-span-full">

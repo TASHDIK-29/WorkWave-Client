@@ -80,7 +80,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-10">
+        <div className="flex justify-around w-full  mx-auto overflow-hidden bg-white rounded-lg shadow-lg p-2 md:p-10">
             <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${login})` }}></div>
 
             <form onSubmit={handelSignIn} className="w-full px-6 py-8 md:px-8 lg:w-1/3 border-2 border-black">
