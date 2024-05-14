@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 
 const UpdateMyPost = () => {
@@ -80,7 +81,7 @@ const UpdateMyPost = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount) {
-                    alert('Successfully Posted')
+                    toast.success('Successfully Updated');
                     getData();
                 }
             })
@@ -91,7 +92,7 @@ const UpdateMyPost = () => {
     return (
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
             <Helmet>
-                <title>Update | {postTitle}</title>
+                <title>Update | WorkWave</title>
             </Helmet>
             <form onSubmit={handelUpdate} className="container flex flex-col mx-auto space-y-12">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">

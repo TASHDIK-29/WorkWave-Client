@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,6 +13,7 @@ import './review.css'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import toast from "react-hot-toast";
 
 
 const Review = () => {
@@ -20,6 +21,8 @@ const Review = () => {
     const { user } = useContext(AuthContext);
 
     const [reviews, setReviews] = useState([]);
+
+    const formRef = useRef(null);
 
 
     useEffect(() => {
@@ -64,7 +67,8 @@ const Review = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert('Successfully Posted')
+                    toast.success('Successfully Posted');
+                    formRef.current.reset();
                     getReviews();
                 }
             })
@@ -135,7 +139,7 @@ const Review = () => {
                     </div>
                 </div>
                 <div className="w-full  lg:w-1/2 px-4 lg:px-10 py-4 flex flex-col items-end">
-                    <form onSubmit={handelSubmit} className="w-full lg:w-2/3 relative">
+                    <form ref={formRef} onSubmit={handelSubmit} className="w-full lg:w-2/3 relative">
                         <label htmlFor="Description" className="block text-lg font-bold text-slate-400">Put tour Thoughts</label>
 
                         <textarea

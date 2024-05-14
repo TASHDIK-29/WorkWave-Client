@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 
 
@@ -46,7 +47,7 @@ const AddPost = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert('Successfully Posted')
+                    toast.success('Successfully Posted');
                 }
             })
     }

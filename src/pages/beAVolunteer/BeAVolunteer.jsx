@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 const BeAVolunteer = () => {
 
@@ -76,7 +77,7 @@ const BeAVolunteer = () => {
             .then(data => {
                 console.log(data);
                 if (data.result.insertedId) {
-                    alert('Successfully requested')
+                    toast.success('Successfully Request Send');
                 }
 
                 if (data.update.modifiedCount) {
