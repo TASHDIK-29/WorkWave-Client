@@ -7,6 +7,7 @@ import { Tooltip } from 'react-tooltip'
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const MyPost = () => {
@@ -17,18 +18,19 @@ const MyPost = () => {
 
     useEffect(() => {
         getData();
+
+        
     }, [user])
 
     const getData = () => {
-        fetch(`https://assignment-11-server-nu.vercel.app/myPost/${user?.email}`, {credentials: "include"})
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setPosts(data);
+        axios.get(`https://assignment-11-server-nu.vercel.app/myPost/${user?.email}`, {withCredentials: true})
+            .then(res=>{
+                console.log(res.data);
+                setPosts(res.data);
             })
 
     }
-
+    console.log(posts);
 
 
     const handelDelete = id => {
@@ -65,7 +67,7 @@ const MyPost = () => {
 
             }
         });
-        
+
 
     }
 
@@ -91,7 +93,7 @@ const MyPost = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            posts.map((post, idx) => <tr key={idx}>
+                            posts?.map((post, idx) => <tr key={idx}>
                                 <th className="text-lg font-normal">{idx + 1}</th>
                                 <td className="text-lg font-normal">{post.postTitle}</td>
                                 <td className="text-lg font-normal">{post.category}</td>

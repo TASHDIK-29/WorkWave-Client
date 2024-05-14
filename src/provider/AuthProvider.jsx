@@ -39,12 +39,12 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     setLoading(true)
 
-    // Clear cookie at logout
-    axios('https://assignment-11-server-nu.vercel.app/logout', {withCredentials: true})
-    .then(res =>{
-      console.log(res.data);
-    })
-    
+    // // Clear cookie at logout
+    // axios('https://assignment-11-server-nu.vercel.app/logout', { withCredentials: true })
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+
     return signOut(auth)
   }
 
@@ -55,8 +55,48 @@ const AuthProvider = ({ children }) => {
     })
   }
 
+
+  const clearCookie = () => {
+    axios.post('https://assignment-11-server-nu.vercel.app/logout', { email: user?.email }, { withCredentials: true })
+      .then(res => {
+        console.log(res.data);
+      })
+  }
+
   // onAuthStateChange
-  useEffect(() => {
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, currentUser => {
+  //     const userEmail = currentUser?.email || user?.email;
+  //     const loggedUser = { email: userEmail };
+  //     setUser(currentUser);
+  //     console.log('current user', currentUser);
+  //     setLoading(false);
+  //     // if user exists then issue a token
+  //     if (currentUser) {
+  //       axios.post('https://assignment-11-server-nu.vercel.app/jwt', loggedUser, { withCredentials: true })
+  //         .then(res => {
+  //           console.log('token response', res.data);
+  //         })
+  //     }
+  //     else {
+  //       axios.post('https://assignment-11-server-nu.vercel.app/logout', loggedUser, {
+  //         withCredentials: true
+  //       })
+  //         .then(res => {
+  //           console.log(res.data);
+  //         })
+  //     }
+  //   });
+  //   return () => {
+  //     return unsubscribe();
+  //   }
+  // }, [])
+
+
+
+
+   // onAuthStateChange
+   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       console.log('CurrentUser-->', currentUser)
@@ -66,6 +106,7 @@ const AuthProvider = ({ children }) => {
       return unsubscribe()
     }
   }, [])
+
 
   const authInfo = {
     user,
@@ -77,6 +118,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     logOut,
     updateUserProfile,
+    clearCookie
   }
 
   return (

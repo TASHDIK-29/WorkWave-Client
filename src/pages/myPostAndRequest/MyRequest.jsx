@@ -19,7 +19,7 @@ const MyRequest = () => {
     }, [user])
 
     const getData = () => {
-        fetch(`https://assignment-11-server-nu.vercel.app/myRequest/${user?.email}`)
+        fetch(`https://assignment-11-server-nu.vercel.app/myRequest/${user?.email}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 console.log(data);

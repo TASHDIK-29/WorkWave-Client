@@ -7,7 +7,7 @@ import logo from '../../assets/W.png'
 
 const Nav = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, clearCookie } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -28,6 +28,8 @@ const Nav = () => {
 
 
     const handelLogout = () => {
+        clearCookie();
+        
         logOut();
         navigate('/login');
         setMouseOver(false);
