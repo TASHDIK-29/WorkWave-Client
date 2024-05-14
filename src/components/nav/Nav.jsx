@@ -4,6 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import placeholder from '../../assets/user.png'
 
 import logo from '../../assets/W.png'
+import Toggle from '../dark/Toggle';
 
 const Nav = () => {
 
@@ -29,7 +30,7 @@ const Nav = () => {
 
     const handelLogout = () => {
         clearCookie();
-        
+
         logOut();
         navigate('/login');
         setMouseOver(false);
@@ -54,7 +55,7 @@ const Nav = () => {
                     <div className="flex items-center justify-between ">
                         <Link to='/' className='text-3xl font-semibold flex items-center'>
                             <img className="w-auto h-12" src={logo} alt="Logo" />
-                            
+
                             Work<span className='text-4xl font-bold'>Wave</span>
                         </Link>
 
@@ -107,7 +108,14 @@ const Nav = () => {
                                     </div>
                                 )}
                             </div>
+                            {/* <div>
+                                <Toggle></Toggle>
+                            </div> */}
 
+                        </div>
+
+                        <div>
+                            <Toggle></Toggle>
                         </div>
 
                         <div className="flex items-center mt-4 lg:mt-0">
