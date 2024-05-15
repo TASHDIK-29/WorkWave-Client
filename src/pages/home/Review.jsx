@@ -77,23 +77,7 @@ const Review = () => {
     // console.log(review);
 
 
-    // useEffect(() => {
-    //     fetch('https://assignment-11-server-nu.vercel.app/review', {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json"
-    //         },
-    //         body: JSON.stringify(review)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.insertedId) {
-    //                 alert('Successfully Posted')
-    //             }
-    //         })
-    // }, [review])
-
+    
     return (
         <div className="my-20">
             <h1 className="text-4xl font-bold text-center mb-12">We Care Your Thoughts</h1>
@@ -143,7 +127,7 @@ const Review = () => {
                         <label htmlFor="Description" className="block text-lg font-bold text-slate-400">Put tour Thoughts</label>
 
                         <textarea
-                            placeholder="lorem..."
+                            placeholder="your thought..."
                             name="review"
                             className="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-4 h-52 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600  dark:focus:border-blue-300 mb-4"
                         ></textarea>

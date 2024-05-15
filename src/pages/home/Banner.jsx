@@ -20,7 +20,7 @@ const Banner = () => {
 
 
     return (
-        <div className="mt-0">
+        <div className="mt-0 mb-14">
 
             <Swiper
                 className='h-[100vh]'

@@ -12,7 +12,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="space-y-14">
             <Helmet>
                 <title>Home | WorkWave</title>
             </Helmet>

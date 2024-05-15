@@ -9,6 +9,10 @@ import { Helmet } from "react-helmet-async";
 
 const NeedVolunteer = () => {
 
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
+
     const [posts, setPosts] = useState([]);
     const [search, setSearch] = useState('');
     console.log(search);
