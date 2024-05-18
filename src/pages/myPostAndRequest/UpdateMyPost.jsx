@@ -45,7 +45,9 @@ const UpdateMyPost = () => {
 
 
     // const [startDate, setStartDate] = useState(new Date(preprocessDeadline(post?.deadline)) || new Date());
-    const [startDate, setStartDate] = useState(new Date());
+    // const [startDate, setStartDate] = useState(new Date(post?.deadline) || new Date());
+    const [startDate, setStartDate] = useState();
+
     console.log(deadline);
 
     const handelUpdate = e => {
@@ -125,7 +127,7 @@ const UpdateMyPost = () => {
                             <label className="text-sm">Deadline</label>
                             {/* <input type="date" name="deadline" defaultValue={deadline} className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-600 font-bold focus:dark:ring-violet-600 dark:border-gray-300 p-2" /> */}
                             {/* <input type="date" name="" id="" /> */}
-                            <DatePicker name="deadline" className="p-2 rounded-md w-full text-gray-600 font-bold" selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <DatePicker name="deadline" className="p-2 rounded-md w-full text-gray-600 font-bold" selected={startDate? startDate : deadline} onChange={(date) => setStartDate(date)} />
                         </div>
 
                         <div className="col-span-full">

@@ -44,6 +44,7 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <PrivateRoute><DetailsCard /></PrivateRoute>,
                 loader : ({params}) => fetch(`https://assignment-11-server-nu.vercel.app/post/${params.id}`)
+                // https://assignment-11-server-nu.vercel.app
             },
             {
                 path: '/update/:id',
