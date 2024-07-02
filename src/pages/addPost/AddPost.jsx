@@ -36,7 +36,7 @@ const AddPost = () => {
         const post = { deadline, orgEmail, orgName, orgPhoto: user?.photoURL, description, location, thumbnail, noOfVolunteers, category, postTitle, view: 0 }
 
 
-        fetch('https://assignment-11-server-nu.vercel.app/post', {
+        fetch('http://localhost:5000/post', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

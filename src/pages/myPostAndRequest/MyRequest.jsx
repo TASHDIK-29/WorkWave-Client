@@ -19,7 +19,7 @@ const MyRequest = () => {
     }, [user])
 
     const getData = () => {
-        fetch(`https://assignment-11-server-nu.vercel.app/myRequest/${user?.email}`, {credentials: "include"})
+        fetch(`http://localhost:5000/myRequest/${user?.email}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -44,7 +44,7 @@ const MyRequest = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`https://assignment-11-server-nu.vercel.app/request?id=${id}&email=${user?.email}`, {
+                fetch(`http://localhost:5000/request?id=${id}&email=${user?.email}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

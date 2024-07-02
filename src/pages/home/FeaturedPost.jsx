@@ -7,10 +7,10 @@ const FeaturedPost = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-11-server-nu.vercel.app/sortedPost')
+        fetch('http://localhost:5000/sortedPost')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setPosts(data);
             })
     }, [])

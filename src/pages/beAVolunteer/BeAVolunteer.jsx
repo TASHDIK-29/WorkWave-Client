@@ -32,7 +32,7 @@ const BeAVolunteer = () => {
 
 
     const getData = () => {
-        fetch(`https://assignment-11-server-nu.vercel.app/post/${id}?view=${true}`)
+        fetch(`http://localhost:5000/post/${id}?view=${true}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -66,7 +66,7 @@ const BeAVolunteer = () => {
         const post = { deadline, orgEmail, orgName, orgPhoto: user?.photoURL, description, location, thumbnail, noOfVolunteers, category, postTitle, volunteerName, volunteerEmail, status, suggestion }
 
 
-        fetch('https://assignment-11-server-nu.vercel.app/request', {
+        fetch('http://localhost:5000/request', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -38,7 +38,7 @@ const Login = () => {
                 const email = res.user.email;
                 const user = { email }
                 console.log(user);
-                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);
@@ -68,7 +68,7 @@ const Login = () => {
                 const user = { email }
                 console.log(user);
 
-                axios.post('https://assignment-11-server-nu.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                     .then(res => {
 
                         console.log(res.data);

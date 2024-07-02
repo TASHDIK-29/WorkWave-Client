@@ -32,10 +32,10 @@ const Review = () => {
 
 
     const getReviews = () => {
-        fetch('https://assignment-11-server-nu.vercel.app/review')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setReviews(data);
             })
     }
@@ -56,7 +56,7 @@ const Review = () => {
         // setReview(data);
 
 
-        fetch('https://assignment-11-server-nu.vercel.app/review', {
+        fetch('http://localhost:5000/review', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

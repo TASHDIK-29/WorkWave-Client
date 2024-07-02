@@ -23,7 +23,7 @@ const MyPost = () => {
     }, [user])
 
     const getData = () => {
-        axios.get(`https://assignment-11-server-nu.vercel.app/myPost/${user?.email}`, {withCredentials: true})
+        axios.get(`http://localhost:5000/myPost/${user?.email}`, {withCredentials: true})
             .then(res=>{
                 console.log(res.data);
                 setPosts(res.data);
@@ -47,7 +47,7 @@ const MyPost = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`https://assignment-11-server-nu.vercel.app/post/${id}`, {
+                fetch(`http://localhost:5000/post/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

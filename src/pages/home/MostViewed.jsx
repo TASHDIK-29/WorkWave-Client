@@ -6,10 +6,10 @@ const MostViewed = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-11-server-nu.vercel.app/mostViewed')
+        fetch('http://localhost:5000/mostViewed')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setPosts(data);
             })
     }, [])

@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
 
     // // Clear cookie at logout
-    // axios('https://assignment-11-server-nu.vercel.app/logout', { withCredentials: true })
+    // axios('http://localhost:5000/logout', { withCredentials: true })
     //   .then(res => {
     //     console.log(res.data);
     //   })
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
 
   const clearCookie = () => {
-    axios.post('https://assignment-11-server-nu.vercel.app/logout', { email: user?.email }, { withCredentials: true })
+    axios.post('http://localhost:5000/logout', { email: user?.email }, { withCredentials: true })
       .then(res => {
         console.log(res.data);
       })
@@ -73,13 +73,13 @@ const AuthProvider = ({ children }) => {
   //     setLoading(false);
   //     // if user exists then issue a token
   //     if (currentUser) {
-  //       axios.post('https://assignment-11-server-nu.vercel.app/jwt', loggedUser, { withCredentials: true })
+  //       axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
   //         .then(res => {
   //           console.log('token response', res.data);
   //         })
   //     }
   //     else {
-  //       axios.post('https://assignment-11-server-nu.vercel.app/logout', loggedUser, {
+  //       axios.post('http://localhost:5000/logout', loggedUser, {
   //         withCredentials: true
   //       })
   //         .then(res => {

@@ -1,5 +1,7 @@
 # WorkWave
 
+To provide a seamless platform connecting volunteers with opportunities, our Volunteer Management System facilitates the offering and searching of volunteer jobs, enhancing community engagement and enabling organizations to efficiently manage and mobilize volunteer efforts.
+
 Web Link :  https://workwave-a11.web.app
 
 
@@ -19,3 +21,18 @@ Web Link :  https://workwave-a11.web.app
 
 * Impact Tracking and Reporting: Organizations can easily track volunteer hours, measure impact, and generate insightful
   reports to demonstrate the value of their volunteer programs to stakeholders and supporters.
+
+
+## Technologies
+
+* React.js
+* JavaScript
+* Tailwind CSS
+* Firebase 
+
+## Run At Local Machine
+
+* Clone - https://github.com/TASHDIK-29/WorkWave-Client.git
+* Instal npm packages - npm i
+* Set up a  project at firebase.
+* Make env.local file for environment variable for firebase config keys.

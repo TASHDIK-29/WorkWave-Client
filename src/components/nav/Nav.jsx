@@ -74,9 +74,10 @@ const Nav = () => {
 
                     {/* Mobile Menu open: "block", Menu closed: "hidden" */}
                     <div className={`${isOpen ? "block" : "hidden"} absolute ml-2 inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-1/2 lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between `}>
-                        <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:justify-around lg:mx-8 gap-2  w-2/3">
+                        <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:justify-around lg:mx-8 gap-2  w-5/6 space-x-2">
                             <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/' >Home</NavLink>
                             <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/needVolunteer'>Need Volunteer</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'border-b-2 border-black text-black font-bold' : 'text-slate-500 font-medium'} to='/preference'>Your Preference</NavLink>
 
                             <div className="relative inline-block">
                                 {/* Dropdown toggle button */}

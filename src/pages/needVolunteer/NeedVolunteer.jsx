@@ -18,7 +18,7 @@ const NeedVolunteer = () => {
     console.log(search);
 
     useEffect(() => {
-        fetch(`https://assignment-11-server-nu.vercel.app/post?search=${search}`)
+        fetch(`http://localhost:5000/post?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

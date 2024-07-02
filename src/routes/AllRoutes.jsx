@@ -11,6 +11,7 @@ import ManagePostAndRequest from "../pages/myPostAndRequest/ManagePostAndRequest
 import UpdateMyPost from "../pages/myPostAndRequest/UpdateMyPost";
 import PrivateRoute from "../private/PrivateRoute";
 import ErrorPage from "../pages/err/ErrorPage";
+import Preference from "../pages/preference/Preference";
 
 
 
@@ -41,10 +42,14 @@ const router = createBrowserRouter([
                 element: <NeedVolunteer />
             },
             {
+                path: '/preference',
+                element: <Preference />
+            },
+            {
                 path: '/details/:id',
                 element: <PrivateRoute><DetailsCard /></PrivateRoute>,
-                loader : ({params}) => fetch(`https://assignment-11-server-nu.vercel.app/post/${params.id}`)
-                // https://assignment-11-server-nu.vercel.app
+                loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
+                // http://localhost:5000
             },
             {
                 path: '/update/:id',
@@ -57,7 +62,7 @@ const router = createBrowserRouter([
             {
                 path: '/postAndRequest',
                 element: <PrivateRoute><ManagePostAndRequest /></PrivateRoute>,
-                // loader : ({params}) => fetch(`https://assignment-11-server-nu.vercel.app/post/${params.id}`)
+                // loader : ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
         ]
     },
